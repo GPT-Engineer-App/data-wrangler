@@ -3,6 +3,7 @@ import { Box, Container, VStack, Heading, Input, Button, Text, FormControl, Form
 import { FaSignInAlt, FaUserPlus } from "react-icons/fa";
 import SidebarMenu from "../components/SidebarMenu";
 import UserLists from "../components/UserLists";
+import SharedLists from "../components/SharedLists";
 
 const Index = () => {
   const [activeMenu, setActiveMenu] = useState("shared");
@@ -64,16 +65,7 @@ const Index = () => {
             <GridItem>
               <SidebarMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
             </GridItem>
-            <GridItem>
-              {activeMenu === "my-lists" ? (
-                <UserLists userId={user.id} />
-              ) : activeMenu === "shared" ? (
-                <VStack spacing={4} align="stretch">
-                  <Heading size="md">Shared with Me</Heading>
-                  {}
-                </VStack>
-              ) : null}
-            </GridItem>
+            <GridItem>{activeMenu === "my-lists" ? <UserLists userId={user.id} /> : activeMenu === "shared" ? <SharedLists userId={user.id} /> : null}</GridItem>
           </Grid>
         </VStack>
       </Box>
