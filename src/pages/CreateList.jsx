@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Container, VStack, Heading, Input, Button, Textarea, useToast } from "@chakra-ui/react";
+import { Box, Container, VStack, Heading, Input, Button, Textarea, useToast, HStack } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
 const CreateList = () => {
@@ -64,12 +64,12 @@ const CreateList = () => {
               <Input placeholder="List Title" value={title} onChange={(e) => setTitle(e.target.value)} required />
               <Textarea placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
               {movies.map((movie, index) => (
-                <VStack key={index} align="stretch" spacing={2}>
-                  <Input placeholder="Movie/Series Title" value={movie.title} onChange={(e) => updateMovie(index, "title", e.target.value)} required />
-                  <Input placeholder="Platform" value={movie.platform} onChange={(e) => updateMovie(index, "platform", e.target.value)} />
-                  <Input placeholder="Comment" value={movie.comment} onChange={(e) => updateMovie(index, "comment", e.target.value)} />
-                  <Input type="number" min="1" max="10" placeholder="Rating (1-10)" value={movie.rating} onChange={(e) => updateMovie(index, "rating", parseInt(e.target.value))} required />
-                </VStack>
+                <HStack key={index} align="stretch" spacing={2}>
+                  <Input placeholder="Movie/Series Title" value={movie.title} onChange={(e) => updateMovie(index, "title", e.target.value)} required width="30%" />
+                  <Input placeholder="Platform" value={movie.platform} onChange={(e) => updateMovie(index, "platform", e.target.value)} width="20%" />
+                  <Input placeholder="Comment" value={movie.comment} onChange={(e) => updateMovie(index, "comment", e.target.value)} width="30%" />
+                  <Input type="number" min="1" max="10" placeholder="Rating (1-10)" value={movie.rating} onChange={(e) => updateMovie(index, "rating", parseInt(e.target.value))} required width="20%" />
+                </HStack>
               ))}
               <Button onClick={addMovie} colorScheme="teal" variant="outline">
                 Add Movie/Series
