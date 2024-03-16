@@ -66,7 +66,7 @@ const Index = () => {
           ) : (
             <VStack spacing={4}>
               <Text>Hello, {user.email}! You can now create and share your movie lists.</Text>
-              <Button leftIcon={<FaListAlt />} colorScheme="green">
+              <Button leftIcon={<FaListAlt />} colorScheme="green" onClick={() => navigate("/create-list")}>
                 Create New List
               </Button>
               <Button leftIcon={<FaShareSquare />} colorScheme="blue">
