@@ -24,7 +24,7 @@ const SidebarMenu = ({ activeMenu, setActiveMenu }) => {
           colorScheme={activeMenu === "shared" ? "teal" : "gray"}
           onClick={() => {
             setActiveMenu("shared");
-            navigate("/shared-lists");
+            navigate("/");
           }}
         >
           Shared with Me
