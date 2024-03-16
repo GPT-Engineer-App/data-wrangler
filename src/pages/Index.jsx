@@ -58,7 +58,6 @@ const Index = () => {
       <Box padding="4" maxWidth="md" width="full">
         <VStack spacing={8}>
           <Heading>Welcome to the Movie List Manager</Heading>
-          <Heading>Welcome to the Movie List Manager</Heading>
           <Grid templateColumns="1fr 3fr" gap={6} width="full">
             <GridItem>
               <SidebarMenu />
