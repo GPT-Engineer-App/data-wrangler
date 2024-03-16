@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Container, VStack, Heading, Input, Button, Text, FormControl, FormLabel, useToast } from "@chakra-ui/react";
-import { FaSignInAlt, FaUserPlus, FaListAlt, FaShareSquare } from "react-icons/fa";
+import { FaSignInAlt, FaUserPlus, FaShareSquare } from "react-icons/fa";
+import NavMenu from "../components/NavMenu";
 
 const Index = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -66,9 +67,7 @@ const Index = () => {
           ) : (
             <VStack spacing={4}>
               <Text>Hello, {user.email}! You can now create and share your movie lists.</Text>
-              <Button leftIcon={<FaListAlt />} colorScheme="green" onClick={() => navigate("/create-list")}>
-                Create New List
-              </Button>
+              <NavMenu />
               <Button leftIcon={<FaShareSquare />} colorScheme="blue">
                 Share a List
               </Button>
