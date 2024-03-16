@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Box, Container, VStack, Heading, Input, Button, Text, FormControl, FormLabel, useToast } from "@chakra-ui/react";
-import { FaSignInAlt, FaUserPlus, FaShareSquare } from "react-icons/fa";
-import NavMenu from "../components/NavMenu";
+import React, { useState, useEffect } from "react";
+import { Box, Container, VStack, Heading, Input, Button, Text, FormControl, FormLabel, useToast, Grid, GridItem } from "@chakra-ui/react";
+import { FaSignInAlt, FaUserPlus } from "react-icons/fa";
+import SidebarMenu from "../components/SidebarMenu";
 
 const Index = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -58,21 +58,19 @@ const Index = () => {
       <Box padding="4" maxWidth="md" width="full">
         <VStack spacing={8}>
           <Heading>Welcome to the Movie List Manager</Heading>
-          {!isLoggedIn ? (
-            <>
-              <AuthForm isLogin={true} />
-              <Text>or</Text>
-              <AuthForm isLogin={false} />
-            </>
-          ) : (
-            <VStack spacing={4}>
-              <Text>Hello, {user.email}! You can now create and share your movie lists.</Text>
-              <NavMenu />
-              <Button leftIcon={<FaShareSquare />} colorScheme="blue">
-                Share a List
-              </Button>
-            </VStack>
-          )}
+          <Heading>Welcome to the Movie List Manager</Heading>
+          <Grid templateColumns="1fr 3fr" gap={6} width="full">
+            <GridItem>
+              <SidebarMenu />
+            </GridItem>
+            <GridItem>
+              <VStack spacing={4} align="stretch">
+                <Heading size="md">Shared with Me</Heading>
+                {}
+                {}
+              </VStack>
+            </GridItem>
+          </Grid>
         </VStack>
       </Box>
     </Container>
