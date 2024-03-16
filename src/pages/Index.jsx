@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Box, Container, VStack, Heading, Input, Button, Text, FormControl, FormLabel, useToast, Grid, GridItem } from "@chakra-ui/react";
 import { FaSignInAlt, FaUserPlus } from "react-icons/fa";
 import SidebarMenu from "../components/SidebarMenu";
+import UserLists from "../components/UserLists";
 
 const Index = () => {
+  const [activeMenu, setActiveMenu] = useState("shared");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
   const toast = useToast();
@@ -60,14 +62,17 @@ const Index = () => {
           <Heading>Welcome to the Movie List Manager</Heading>
           <Grid templateColumns="1fr 3fr" gap={6} width="full">
             <GridItem>
-              <SidebarMenu />
+              <SidebarMenu activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
             </GridItem>
             <GridItem>
-              <VStack spacing={4} align="stretch">
-                <Heading size="md">Shared with Me</Heading>
-                {}
-                {}
-              </VStack>
+              {activeMenu === "my-lists" ? (
+                <UserLists userId={user.id} />
+              ) : activeMenu === "shared" ? (
+                <VStack spacing={4} align="stretch">
+                  <Heading size="md">Shared with Me</Heading>
+                  {}
+                </VStack>
+              ) : null}
             </GridItem>
           </Grid>
         </VStack>
