@@ -1,21 +1,18 @@
 import React from "react";
 import { Box, VStack, Button } from "@chakra-ui/react";
 import { FaListAlt, FaShareAlt } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 
-const SidebarMenu = () => {
-  const navigate = useNavigate();
-
+const SidebarMenu = ({ onMenuClick }) => {
   return (
     <Box>
       <VStack spacing={4} align="stretch">
-        <Button leftIcon={<FaListAlt />} colorScheme="teal" onClick={() => navigate("/my-lists")}>
+        <Button leftIcon={<FaListAlt />} colorScheme="teal" onClick={() => onMenuClick("my-lists")}>
           My Lists
         </Button>
-        <Button leftIcon={<FaShareAlt />} colorScheme="blue" onClick={() => navigate("/shared-lists")}>
+        <Button leftIcon={<FaShareAlt />} colorScheme="blue" onClick={() => onMenuClick("shared")}>
           Shared with Me
         </Button>
-        <Button leftIcon={<FaListAlt />} colorScheme="green" onClick={() => navigate("/create-list")}>
+        <Button leftIcon={<FaListAlt />} colorScheme="green" onClick={() => onMenuClick("create")}>
           Create New List
         </Button>
       </VStack>
